@@ -1,10 +1,10 @@
 import React from 'react';
-
+import SearchBox from './searchbox'
 import '../components/indiaTable.scss';
 import axios from 'axios'
 import { Table } from 'react-bootstrap'
 
-
+import Displaytable from './tabledisplay'
 import ReactLoading from "react-loading";
 
 
@@ -48,6 +48,7 @@ class IndiaTable extends React.Component{
       items:[],
       gob:[],
       flag:false,
+      field:"",
       
     }
   }
@@ -67,7 +68,11 @@ class IndiaTable extends React.Component{
    
   }
 
- 
+  onSearchChange=event=>{
+    this.setState({field:event.target.value})
+   
+     }
+
 render(){
   var count=0
 for (var i=0;i<this.state.items.length;i++){
@@ -77,6 +82,13 @@ for (var i=0;i<this.state.items.length;i++){
 }
 
 console.log( Date().split(' '))
+
+
+var {items,field}=this.state;
+ const filterdItem=items.filter(item=>{
+  return item.state.toLowerCase().includes(field.toLowerCase())
+})
+
 
  
   return(
@@ -92,7 +104,7 @@ console.log( Date().split(' '))
 
   <ul class="responsive-table">
   <center><h2>INDIA-STATEWISE</h2><h6>{this.state.items.length-count}  States/UTS Affected</h6></center> 
-
+  <center><SearchBox changer={this.onSearchChange} /> </center>
     <li class="table-header">
       <div class="col-3 col-1"  ><b>STATES</b></div>
       <div class="col-2 col-1"><b>CONFIRMED</b></div>
@@ -100,17 +112,8 @@ console.log( Date().split(' '))
       <div class="col col-2"><b>RECOVERED</b></div>
       <div class="col col-2"><b>DEATHS</b></div>
     </li>
-    {
- 
-    this.state.items.map(item=> 
-     
-    <li class="table-row">
-      <div class="col-3 col-1" key={item.id}> <b>{item.state}</b><br></br><small>lastupdate:{item.lastupdatedtime} </small></div>
-      <div class="col-1 col-2 " key={item.id} style={{color:'red'}}> <large ><b>{item.confirmed}</b> </large><small ><b>⇧{item.deltaconfirmed}</b></small></div>
-      <div  class="col col-1 " key={item.id} style={{color:'blue'}}><b>{item.active}</b></div>
-      <div class="col- col-2" style={{color:'green'}}> <large ><b>{item.recovered}</b> </large><small ><b>⇧{item.deltarecovered}</b></small></div>
-      <div class="col col-2"style={{color:'grey'}}> <large ><b>{item.deaths}</b> </large><small ><b>⇧{item.deltadeaths}</b></small></div>
-    </li>)}
+    
+    <Displaytable items={ filterdItem}/>
   </ul>
     </div>
 

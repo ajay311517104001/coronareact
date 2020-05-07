@@ -3,8 +3,9 @@ body {
     font-family: 'lato', sans-serif;
   }
 .container {
-   
-    max-width: 1000px;
+  position :relative;
+  left: 0em;
+    max-width: 100%;
     margin-left: 0px;
     margin-right: 10px;
     padding-left: 0px;
@@ -22,6 +23,7 @@ h2 {
   
   .responsive-table {
     li {
+      
       border-radius: 3px;
       padding: 25px 30px;
       display: flex;

@@ -21,7 +21,7 @@ class Navbaro extends Component{
                     <Navbar bg="dark"  variant="dark" expand="lg">
                   
                   <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link  href="/india">INDIA</Nav.Link>
                     <Nav.Link href="/pricing">Pricing</Nav.Link>
                          </Nav>

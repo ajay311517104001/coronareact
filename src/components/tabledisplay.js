@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './indiaTable.scss';
+
 
 import './indiaTable'
 const Displaytable =({items})=>{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom'
 import{Navbar,Nav} from 'react-bootstrap'
+import './worls.scss'
 class Time extends React.Component{
   
     render(){
@@ -18,14 +19,10 @@ class Navbaro extends Component{
     render(){
         return(
                 <div>
-                    <Navbar bg="dark"  variant="dark" expand="lg">
-                  
-                  <Nav className="mr-auto">
-                    <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link  href="/india">INDIA</Nav.Link>
-                    <Nav.Link href="/pricing">Pricing</Nav.Link>
-                         </Nav>
-                         </Navbar>
+                  <div class="navbar">
+  <ul><li> <Link to="/" style={{color:'#C2D9DD'}}>WORLD</Link></li><li> <Link to="/india" style={{color:'#C2D9DD'}}>INDIA</Link></li><li>help</li></ul>
+</div>
+
                          <br></br>
                          <br></br>
                         <center><Time /></center>

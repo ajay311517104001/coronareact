@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchBox from './searchbox'
-import '../components/indiaTable.scss';
+
 import axios from 'axios'
 import { Table } from 'react-bootstrap'
-
+import './worls.scss'
 import Displaytable from './tabledisplay'
 import ReactLoading from "react-loading";
 
@@ -24,15 +24,46 @@ class Display extends React.Component {
 class Glob extends React.Component{
   render(){
     return(
-       <div class="contain">
-  <div class="item" style={{color:'red'}}><br></br><div><h5>Confirmed</h5></div><br></br><h5>[+{this.props.glob.deltaconfirmed}]</h5><h3><b>{this.props.glob.confirmed}</b></h3></div>
-  <div class="item"style={{color:'blue'}}><br></br><div><h5>Active</h5></div><br></br><br></br><h3><b>{this.props.glob.active}</b></h3></div>
-  <div class="item"style={{color:'green'}}><br></br><div><h5>Recovered</h5></div><br></br><h5>[+{this.props.glob.deltarecovered}]</h5><h3><b>{this.props.glob.recovered}</b></h3></div>
-  <div class="item"style={{color:'grey'}}><br></br><div><h5>Deceased</h5></div><br></br><h5>[+{this.props.glob.deltadeaths}]</h5><h3><b>{this.props.glob.deaths}</b></h3></div>
+      <div>
+      
+<div class="container1" style={{position:'relative',left:'-5em'}}>
+    <div class="mini">
+    <div class="box">
+       
+      <h5 style={{color:'red'}}><br></br>Confirmed</h5>
+      
+      <h6 className="today"style={{color:'red', position: 'relative',top:'15px'}}><h5 style={{color:'red'}}><b>[+{this.props.glob.deltaconfirmed}]</b></h5></h6>
+      <br></br>
+      <h3 style={{color:'red'}}><b>{this.props.glob.confirmed}</b></h3>
+    </div>
+    <div class="box">
+       
+       <h5 style={{color:'blue'}}><br></br>Active</h5>
+       
+       <h6 className="today"style={{color:'red', position: 'relative',top:'15px'}}><br></br></h6>
+       <br></br>
+       <h3 style={{color:'blue'}}><b>{this.props.glob.active}</b></h3>
+     </div>
+     <div class="box">
+       
+      <h5 style={{color:'green'}}><br></br>Recovered</h5>
+      
+      <h6 className="today"style={{color:'green', position: 'relative',top:'15px'}}><h5 style={{color:'green'}}><b>[+{this.props.glob.deltarecovered}]</b></h5></h6>
+      <br></br>
+      <h3 style={{color:'green'}}><b>{this.props.glob.recovered}</b></h3>
+    </div>
+    <div class="box">
+       
+      <h5 style={{color:'grey'}}><br></br>Deaths</h5>
+      
+      <h6 className="today"style={{color:'grey', position: 'relative',top:'15px'}}><h5 style={{color:'grey'}}><b>[+{this.props.glob.deltadeaths}]</b></h5></h6>
+      <br></br>
+      <h3 style={{color:'grey'}}><b>{this.props.glob.deaths}</b></h3>
+    </div>
+  </div>
   
-</div>
-
-     
+    </div>
+    </div>
     )
   }
 }
@@ -98,19 +129,20 @@ var {items,field}=this.state;
 
   <Display valuE={this.state.flag} />
 
-<div class="container">
+<div class="container" style={{position:'relative',top:'10em'}} >
 
 
 
   <ul class="responsive-table">
+  
   <center><h2>INDIA-STATEWISE</h2><h6>{this.state.items.length-count}  States/UTS Affected</h6></center> 
-  <center><SearchBox changer={this.onSearchChange} /> </center>
+  <center style={{position:'absolute',left:'-2.5em',top:'-0.8em'}} ><SearchBox  changer={this.onSearchChange} /> </center>
     <li class="table-header">
-      <div class="col-3 col-1"  ><b>STATES</b></div>
-      <div class="col-2 col-1"><b>CONFIRMED</b></div>
-      <div class="col  col-1"><b>ACTIVE</b></div>
-      <div class="col col-2"><b>RECOVERED</b></div>
-      <div class="col col-2"><b>DEATHS</b></div>
+      <div class="col col-1"  ><b>STATES</b></div>
+      <div class="col col-2"><b>CONFIRMED</b></div>
+      <div class="col  col-3"><b>ACTIVE</b></div>
+      <div class="col col-4"><b>RECOVERED</b></div>
+      <div class="col col-5"><b>DEATHS</b></div>
     </li>
     
     <Displaytable items={ filterdItem}/>

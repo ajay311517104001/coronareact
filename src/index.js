@@ -9,7 +9,7 @@ import { BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Navbaro from './components/nav'
 import IndiaTable from './components/indiaTable'
 
-
+import World from './components/world'
 
 
 
@@ -24,7 +24,8 @@ render(){
       <Router>
        <Navbaro />
        <Switch>
-       <Route exact path="/india" component={IndiaTable} />
+        <Route exact path='/' component={World} />
+        <Route exact path="/india" component={IndiaTable} />
        </Switch>
        </Router>
     </div>
